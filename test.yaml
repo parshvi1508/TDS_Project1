@@ -3,7 +3,7 @@ description: "TDS Virtual TA Project Sample (but not the actual evaluation) Ques
 providers:
   - id: https
     config:
-      url: http://127.0.0.1:8080/query/ # Replace this with your API endpoint
+      url: https://app.example.com/api/ # Replace this with your API endpoint
       method: POST
       headers:
         Content-Type: application/json
@@ -16,26 +16,6 @@ providers:
 
 # Ensure JSON schema
 defaultTest:
-  options:
-    provider:
-      id: https
-      config:
-        url: https://aiproxy.sanand.workers.dev/openai/v1/chat/completions
-        method: POST
-        headers:
-          Content-Type: application/json
-          Authorization: eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjIwMDA5OTBAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.jOHiMlHw5cW8eUDiHqFtT2oDJ0CmHRSsuAUO8xZMfXk
-        body: |
-          {
-            "model": "gpt-4o-mini",
-            "messages": [
-              {"role": "system", "content": "You are an evaluator that checks if an output meets specific criteria. Analyze the output based on the given rubric and respond with a JSON object containing {\"reason\": \"your analysis\", \"score\": number between 0.0 and 1.0, \"pass\": true/false}."},
-              {"role": "user", "content": "Output to evaluate: {{ output }}\n\nRubric: {{ rubric }}"}
-            ],
-            "temperature": 0
-          }
-        transformResponse: json
-
   assert:
     - type: is-json
       value:
