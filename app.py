@@ -30,6 +30,7 @@ MAX_CONTEXT_CHUNKS = 4  # Increased number of chunks per source
 # API_KEY = os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY")  # Get API key from environment variable
 API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjI0ZjEwMDE3MjNAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.oFzqpHokxlVDmaEdej99niV8tiscUqN6Hr--y1vHGF8"
 
+
 # Models
 class QueryRequest(BaseModel):
     question: str
@@ -724,6 +725,8 @@ async def health_check():
             status_code=500,
             content={"status": "unhealthy", "error": str(e), "api_key_set": bool(API_KEY)}
         )
-
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI backend is live!"}
 if __name__ == "__main__":
     uvicorn.run("app:app", port=8080, reload=True)
