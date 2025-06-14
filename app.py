@@ -28,7 +28,7 @@ MAX_RESULTS = 10  # Increased to get more context
 load_dotenv()
 MAX_CONTEXT_CHUNKS = 4  # Increased number of chunks per source
 # API_KEY = os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY")  # Get API key from environment variable
-API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIzZjIwMDA5OTBAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.jOHiMlHw5cW8eUDiHqFtT2oDJ0CmHRSsuAUO8xZMfXk"
+API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjI0ZjEwMDE3MjNAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.oFzqpHokxlVDmaEdej99niV8tiscUqN6Hr--y1vHGF8"
 
 # Models
 class QueryRequest(BaseModel):
