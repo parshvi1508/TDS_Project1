@@ -728,5 +728,10 @@ async def health_check():
 @app.get("/")
 def read_root():
     return {"message": "FastAPI backend is live!"}
+
+@app.post("/")
+async def handle_root_post(request: QueryRequest):
+    """Handle POST requests to root - redirect to /query endpoint"""
+    return await query_knowledge_base(request)
 if __name__ == "__main__":
     uvicorn.run("app:app", port=8080, reload=True)
